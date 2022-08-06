@@ -27,7 +27,7 @@ function Show() {
         setImages(Object.values(uniqueImages))
       })
     })
-  }, [])
+  }, [nasaId])
 
   return (
     <div className="container">
