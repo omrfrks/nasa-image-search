@@ -52,6 +52,10 @@ function App() {
       setSearchResultsError('')
     }
     setSearchResultsLoading(true)
+    if(searchResults && !searchResults.href.includes('https')) {
+      searchResults.href = searchResults.href.replace('http://','https://')
+      setSearchResults(searchResults)
+    }
     axios
       .get(`${searchResults && searchResults.href}&page=${page}`)
       .then((res) => {
@@ -120,7 +124,7 @@ function App() {
           Array(12)
             .fill(0)
             .map((_, i) => (
-              <Col key={i} span={6}>
+              <Col key={i} xs={24} sm={24} md={8} lg={8} xl={8}>
                 <Card
                   hoverable
                   style={{
@@ -141,7 +145,7 @@ function App() {
           searchResults.items &&
           searchResults.items.map((result: any) => {
             return (
-              <Col span={8} key={result.data[0].nasa_id}>
+              <Col xs={24} sm={24} md={8} lg={8} xl={8} key={result.data[0].nasa_id}>
                 <Link to={`/show/${result.data[0].nasa_id}`}>
                   <Card
                     hoverable

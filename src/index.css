@@ -33,4 +33,6 @@ h2{
 
 .App {
   text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
